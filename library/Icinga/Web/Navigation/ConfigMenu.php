@@ -14,6 +14,9 @@ use ipl\Html\Text;
 use ipl\Web\Url;
 use ipl\Web\Widget\Icon;
 
+/**
+ * Config Menu Navigation Item, that collecs the main system and configuration navigation items
+ */
 class ConfigMenu extends BaseHtmlElement
 {
     use HealthBadgeTrait;
@@ -32,6 +35,9 @@ class ConfigMenu extends BaseHtmlElement
 
     protected $healthBadge;
 
+    /**
+     * Create a new ConfigMenu element
+     */
     public function __construct()
     {
         $this->children = [
@@ -168,6 +174,12 @@ class ConfigMenu extends BaseHtmlElement
         $level2Nav->add($navContent);
     }
 
+    /**
+     * @param NavigationItem $item
+     *
+     * @return bool
+     *
+     */
     protected function isSelectedItem($item)
     {
         if ($item !== null && Icinga::app()->getRequest()->getUrl()->matches($item['url'])) {
